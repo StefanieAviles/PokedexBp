@@ -1,19 +1,27 @@
 import './Card.css'
-import { FaPlus, FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa"
+import {getPokemonById} from '../../Functions/Functions'
 
-export function Card({ item, editPokemon, deletePokemon }) {
-    
+export function Card({ editPokemon, pokemons }) {
+
     return (
         <section className="card">
-            <div className="item">{item.name}</div>
-            <div className="item"><img className="pokeImage"src={item.image} alt="pokemon"></img></div>
-            <div className="item">{item.attack}</div>
-            <div className="item">{item.defense}</div>
-            <div className="item">
-                <FaPlus className="fa fa-plus" onClick={editPokemon}/>
-                <FaTrashAlt className="fa fa-trash" onClick={deletePokemon}/>
-            </div>
-                    
+            { pokemons.map(option => {
+                const deletePoke = () => {
+                    //deletePokemon(option.id, pokemons)
+                    getPokemonById(option.id, pokemons)
+                }
+                return <>
+                        <div className="item">{option.name}</div>
+                        <div className="item"><img className="pokeImage"src={option.image} alt="pokemon"></img></div>
+                        <div className="item">{option.attack}</div>
+                        <div className="item">{option.defense}</div>
+                        <div className="item">
+                            <FaEdit className="fa fa-plus" onClick={editPokemon}/>
+                            <FaTrashAlt className="fa fa-trash" onClick={deletePoke}/>
+                        </div>
+                    </>
+            })}     
         </section>
     )
 }

@@ -1,5 +1,5 @@
-import { getAllPokemons, getPokemonsByName } from '../../Functions/Functions'
-import { useEffect, useState } from 'react'
+import { getAllPokemons, getPokemonsByName,  } from '../../Functions/Functions'
+import { useEffect, useState} from 'react'
 import { Card } from '../Card/Card'
 import './Board.css'
 
@@ -18,9 +18,6 @@ export function Board ({searchValue, setStateModal}) {
     setStateModal(true)
     console.log("Edit")
   }
-  const deletePokemon = () => {
-    console.log("Delete")
-  }
     return (
       <main className="board">
         <section className="headerTable">
@@ -31,9 +28,10 @@ export function Board ({searchValue, setStateModal}) {
           <div className="itemBoard">Acciones</div>
         </section>
         <section className="pokemonsBoard">
-        { Pokemons.map((item, index) => {
-                return (<Card  key={index} item={item} editPokemon={editPokemon} deletePokemon={deletePokemon}/>)
-            })}
+          <Card  editPokemon={editPokemon} pokemons = {Pokemons}/>
+       {/*  { Pokemons.map((item, index) => {
+                return (<Card  key={index} item={item} editPokemon={editPokemon} deletePokemon={deletePokemon} pokemons = {Pokemons}/>)
+            })} */}
         </section>
       </main>
     )
