@@ -8,12 +8,13 @@ import '../modals/createPokemon/Modal.css'
 
 export function Home () {
   const [searchValue, setSearchValue] = useState('')
+  const [stateModal, setStateModal] = useState(false)
   return (
     <div>
       <Title></Title>
-      <Tool searchValue={searchValue} setSearchValue={setSearchValue}></Tool>
-      <Board searchValue={searchValue}></Board>
-      <Modal></Modal>
+      <Tool searchValue={searchValue} setSearchValue={setSearchValue} setStateModal={setStateModal}></Tool>
+      <Board searchValue={searchValue} setStateModal={setStateModal}></Board>
+      <Modal stateModal={stateModal} setStateModal={setStateModal}></Modal>
     </div>
   )
 }

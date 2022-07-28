@@ -2,16 +2,15 @@ import React from 'react'
 import './Tool.css'
 import { FaSistrix } from 'react-icons/fa'
 import {useRef} from 'react'
-import { postNewPokemon } from '../../Functions/Functions'
 
-export function Tool ({searchValue, setSearchValue}) {
+export function Tool ({searchValue, setSearchValue,setStateModal}) {
   const searchValueRef = useRef();
   function search (){
     searchValueRef.current.value=null
     setSearchValue('')
   }
-  function uploadPokemon(){
-    postNewPokemon()
+  function newPokemon(){
+    setStateModal(true)
   }
   return (
     <div className="containerSearch">
@@ -19,7 +18,7 @@ export function Tool ({searchValue, setSearchValue}) {
         <input placeholder="Buscar" onChange={(e) => setSearchValue(e.target.value)}ref={searchValueRef} type="text"></input>
         <FaSistrix onClick={search} id="searchLogo"/>
       </div>
-      <button onClick={uploadPokemon}> + Nuevo </button>
+      <button onClick={newPokemon}> + Nuevo </button>
     </div>
   )
 }

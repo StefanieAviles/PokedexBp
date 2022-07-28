@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Card } from '../Card/Card'
 import './Board.css'
 
-export function Board ({searchValue}) {
+export function Board ({searchValue, setStateModal}) {
   const [Pokemons, setPokemons] = useState([]) 
   useEffect(() => {
     if(searchValue===''){
@@ -15,6 +15,7 @@ export function Board ({searchValue}) {
     
   }, [searchValue])
   const editPokemon = () => {
+    setStateModal(true)
     console.log("Edit")
   }
   const deletePokemon = () => {
