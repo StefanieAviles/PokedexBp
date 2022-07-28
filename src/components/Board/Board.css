@@ -1,0 +1,31 @@
+.board{
+    display:flex;
+    width:90%;
+    border:1px solid grey;
+    border-radius: 5px;
+    margin: auto;
+    justify-content:space-evenly;
+    flex-direction:column;
+}
+.headerTable{
+    display:flex;
+    justify-content:space-evenly;
+    width:100%;
+}
+.pokemonsBoard{
+    display:flex;
+    justify-content:space-evenly;
+    width:100%;
+    flex-direction:column;
+
+}
+.itemBoard{
+    border:1px solid grey;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    height:40px;
+    font-size: 20px;
+    font-weight: bold;
+}

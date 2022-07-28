@@ -1,0 +1,19 @@
+.containerSearch{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 5px 10px;
+}
+#seeker{
+    width: 50%;
+}
+#searchLogo{
+    width: 22px;
+    height: 25px;
+    position: absolute;
+    left: 14%;
+    top: 16%;
+    border: 0;
+    color: grey;
+}
