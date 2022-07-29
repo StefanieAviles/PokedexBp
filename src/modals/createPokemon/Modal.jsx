@@ -1,17 +1,22 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import './Modal.css'
 import { FaWindowClose } from "react-icons/fa";
-import {useRef, useState} from 'react'
+import {useRef, useState, useEffect} from 'react'
+import { postNewPokemon } from '../../Functions/Functions'
 
 
-export function Modal({stateModal, setStateModal}) {
+export function Modal({stateModal, setStateModal,setPokemons}) {
     const nameRef = useRef();
     const urlRef = useRef();
     const attackRef = useRef();
     const defenseRef = useRef();
     const [nameError, setNameError] = useState('')
     const [urlError, setUrlError] = useState('')
+
     function closeModal(){
         setStateModal(false)
+        setNameError('')
+        setUrlError('')
     }
     function createPokemon(){
         setNameError('')
@@ -22,10 +27,18 @@ export function Modal({stateModal, setStateModal}) {
         if(urlRef.current.value === ''){
             setUrlError('* Campo requerido')
         }
-        if(nameRef.current.value!== '' && nameRef.current.value!== '' ){
-            console.log("create")
-            console.log(nameRef.current.value + urlRef.current.value + attackRef.current.value + defenseRef.current.value)
-            //ENVIAR A LA API
+        if(nameRef.current.value!== '' && urlRef.current.value!== '' ){
+            const poke = {
+                id: Math.floor(Math.random() * (1000 - 1) + 1),
+                name: nameRef.current.value,
+                image:urlRef.current.value,
+                attack:parseInt(attackRef.current.value),
+                defense:parseInt(defenseRef.current.value),
+                hp:1000,
+                type:"n/a",
+                idAuthor:1
+            }
+            postNewPokemon(poke)  
             setStateModal(false)
         }
     }
@@ -50,7 +63,7 @@ export function Modal({stateModal, setStateModal}) {
             <p className="textError">{nameError}</p>
             <div className="setPokemon">
             <label>Imagen:</label>
-                <input ref={urlRef} type="text" placeholder="Ej. pikachu"></input>
+                <input ref={urlRef} type="text" placeholder="Ej. https//:somedir.com"></input>
                 <label>Defensa:</label>
                 <div className="setPokemon">
                     <label>0</label>

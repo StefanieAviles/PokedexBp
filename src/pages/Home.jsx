@@ -6,15 +6,17 @@ import {useState} from 'react'
 import { Modal } from '../modals/createPokemon/Modal'
 import '../modals/createPokemon/Modal.css'
 
-export function Home () {
+export  function Home () {
   const [searchValue, setSearchValue] = useState('')
   const [stateModal, setStateModal] = useState(false)
+  const [Pokemons, setPokemons] = useState([]) 
+  
   return (
     <div>
       <Title></Title>
-      <Tool searchValue={searchValue} setSearchValue={setSearchValue} setStateModal={setStateModal}></Tool>
-      <Board searchValue={searchValue} setStateModal={setStateModal}></Board>
-      <Modal stateModal={stateModal} setStateModal={setStateModal}></Modal>
+      <Tool searchValue={searchValue} setSearchValue={setSearchValue} setStateModal={setStateModal} Pokemons={Pokemons}></Tool>
+      <Board searchValue={searchValue} setStateModal={setStateModal} Pokemons={Pokemons} setPokemons={setPokemons}></Board>
+      <Modal stateModal={stateModal} setStateModal={setStateModal} setPokemons={setPokemons}></Modal>
     </div>
   )
 }

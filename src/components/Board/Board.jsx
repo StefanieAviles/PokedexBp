@@ -1,10 +1,10 @@
 import { getAllPokemons, getPokemonsByName,  } from '../../Functions/Functions'
-import { useEffect, useState} from 'react'
+import { useEffect} from 'react'
 import { Card } from '../Card/Card'
 import './Board.css'
 
-export function Board ({searchValue, setStateModal}) {
-  const [Pokemons, setPokemons] = useState([]) 
+export function Board ({searchValue, setStateModal, Pokemons, setPokemons}) {
+  //const [Pokemons, setPokemons] = useState([]) 
   useEffect(() => {
     if(searchValue===''){
       getAllPokemons(setPokemons)
@@ -29,9 +29,6 @@ export function Board ({searchValue, setStateModal}) {
         </section>
         <section className="pokemonsBoard">
           <Card  editPokemon={editPokemon} pokemons = {Pokemons}/>
-       {/*  { Pokemons.map((item, index) => {
-                return (<Card  key={index} item={item} editPokemon={editPokemon} deletePokemon={deletePokemon} pokemons = {Pokemons}/>)
-            })} */}
         </section>
       </main>
     )

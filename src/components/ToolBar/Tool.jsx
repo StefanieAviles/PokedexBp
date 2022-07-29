@@ -2,7 +2,6 @@ import React from 'react'
 import './Tool.css'
 import { FaSistrix } from 'react-icons/fa'
 import { useRef } from 'react'
-import { postNewPokemon } from '../../Functions/Functions'
 
 export function Tool ({searchValue, setSearchValue,setStateModal}) {
   const searchValueRef = useRef();
@@ -11,7 +10,6 @@ export function Tool ({searchValue, setSearchValue,setStateModal}) {
     setSearchValue('')
   }
   function newPokemon(){
-    postNewPokemon()
     setStateModal(true)
   }
   return (
