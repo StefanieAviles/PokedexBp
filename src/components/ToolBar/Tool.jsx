@@ -22,3 +22,4 @@ export function Tool ({searchValue, setSearchValue,setStateModal}) {
     </div>
   )
 }
+

@@ -8,9 +8,9 @@ describe('Tool function', () => {
     const mockFunction = jest.fn()
 
   it('Render Tool', () => {    
-    const view = render (<Tool searchValue={value} setSearchValue={mockFunction} setStateModal={mockFunction}/>)
+    const view = render (<Tool searchValue={value} setStateModal={mockFunction}/>)
     screen.getByPlaceholderText('Buscar')
-    expect(view).toBeDefined()
+    expect(view).toBeDefined()   
   })
   it('renders learn react link', () => {
     render (<Tool searchValue={value} setSearchValue={mockFunction} setStateModal={mockFunction}/>)

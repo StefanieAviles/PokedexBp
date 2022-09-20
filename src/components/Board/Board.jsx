@@ -3,21 +3,7 @@ import { useEffect} from 'react'
 import { Card } from '../Card/Card'
 import './Board.css'
 
-export function Board ({searchValue, setStateModal, Pokemons, setPokemons}) {
-  //const [Pokemons, setPokemons] = useState([]) 
-  useEffect(() => {
-    if(searchValue===''){
-      getAllPokemons(setPokemons)
-    }
-    else{
-      getPokemonsByName(searchValue,setPokemons)
-    }
-    
-  }, [searchValue])
-  const editPokemon = () => {
-    setStateModal(true)
-    console.log("Edit")
-  }
+export function Board ({searchValue, setStateModal, Pokemons, setPokemons, setItem, setEdit, setIdEdit}) {
     return (
       <main className="board">
         <section className="headerTable">
@@ -28,7 +14,7 @@ export function Board ({searchValue, setStateModal, Pokemons, setPokemons}) {
           <div className="itemBoard">Acciones</div>
         </section>
         <section className="pokemonsBoard">
-          <Card  editPokemon={editPokemon} pokemons = {Pokemons}/>
+          <Card  setStateModal={setStateModal} Pokemons = {Pokemons} setPokemons={setPokemons} searchValue={searchValue} setItem={setItem} setEdit={setEdit} setIdEdit={setIdEdit}/>
         </section>
       </main>
     )
